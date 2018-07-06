@@ -383,9 +383,10 @@
 
     (let [[s2 bindings2] (api/transact s1 [{:db/id (bindings -1)
                                             :person/head {:db/id -200
-                                                          :limb/name "replacemen head"}}])]
-      (is (= #{[(bindings 1) :person/name "Luke"]
-               [(bindings 1) :person/head (bindings2 -200)]}))
+                                                          :limb/name "replacement head"}}])
+          person2 (api/query s2 all-attrs (bindings -1))]
+      (is (= person2 #{[(bindings -1) :person/name "Luke"]
+                       [(bindings -1) :person/head (bindings2 -200)]}))
 
       (is (empty? (api/query s2 all-attrs (bindings -100)))))))
 
