@@ -51,7 +51,7 @@ the top-level API (true for the default implementation.)"} *store*)
     listener)
   (right-retract! [listener node elements]
     listener)
-  (insert-facts! [listener facts]
+  (insert-facts! [listener node token facts]
     (swap! *store* store/update (filter datom? facts) [])
     listener)
   (alpha-activate! [listener node facts]
@@ -61,7 +61,7 @@ the top-level API (true for the default implementation.)"} *store*)
   (insert-facts-logical! [listener node token facts]
     (swap! *store* store/update (filter datom? facts) [])
     listener)
-  (retract-facts! [listener facts]
+  (retract-facts! [listener node token facts]
     (swap! *store* store/update [] (filter datom? facts))
     listener)
   (retract-facts-logical! [listener node token facts]
@@ -74,6 +74,8 @@ the top-level API (true for the default implementation.)"} *store*)
   (add-activations! [listener node activations]
     listener)
   (remove-activations! [listener node activations]
+    listener)
+  (fire-activation! [listener activation resulting-operations]
     listener)
   (fire-rules! [listener node]
     listener)

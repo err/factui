@@ -2,7 +2,7 @@
   :dependencies [[org.clojure/clojure "1.9.0-alpha17" :scope "provided"]
                  [org.clojure/clojurescript "1.9.671" :scope "provided"]
                  [org.clojure/core.async "0.3.443"]
-                 [com.cerner/clara-rules "0.15.1" :exclusions [prismatic/schema]]
+                 [com.cerner/clara-rules "0.18.0" :exclusions [prismatic/schema]]
                  [prismatic/schema "1.1.6"]
                  [org.clojure/core.match "0.3.0-alpha4"]]
   :source-paths ["dev" "src"]
