@@ -182,15 +182,15 @@
 
 (deftest simple-rule-test
   (let [[s _] (api/transact base [{:db/id -99
-                                          :person/id 42
-                                          :person/name "Luke"
-                                          :person/likes ["Milk"]}])
+                                   :person/id 42
+                                   :person/name "Luke"
+                                   :person/likes ["Milk"]}])
         result (api/query s all-attrs 42)]
     (is (= result
-          #{[:person/id 42]
-            [:person/likes "Milk"]
-            [:person/likes "Cookies"]
-            [:person/name "Luke"]}))))
+           #{[:person/id 42]
+             [:person/likes "Milk"]
+             [:person/likes "Cookies"]
+             [:person/name "Luke"]}))))
 
 (deftest simple-rule-logical-test
   (let [[s1 bindings] (api/transact base [{:db/id -99

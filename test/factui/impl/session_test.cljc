@@ -371,10 +371,10 @@
 
 (deftest replace-component
   (let [[s1 bindings] (api/transact base
-                        [{:db/id -1
-                          :person/name "Luke"
-                          :person/head {:db/id -100
-                                        :limb/name "head"}}])
+                                    [{:db/id -1
+                                      :person/name "Luke"
+                                      :person/head {:db/id -100
+                                                    :limb/name "head"}}])
         person (api/query s1 all-attrs (bindings -1))
         head (api/query s1 all-attrs (bindings -100))]
     (is (= person #{[(bindings -1) :person/name "Luke"]
