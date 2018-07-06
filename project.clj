@@ -1,13 +1,13 @@
 (defproject org.arachne-framework/factui "1.1.0-SNAPSHOT"
-  :dependencies [[org.clojure/clojure "1.9.0-alpha17" :scope "provided"]
-                 [org.clojure/clojurescript "1.9.671" :scope "provided"]
+  :dependencies [[org.clojure/clojure "1.9.0" :scope "provided"]
+                 [org.clojure/clojurescript "1.10.339" :scope "provided"]
                  [org.clojure/core.async "0.3.443"]
                  [com.cerner/clara-rules "0.18.0" :exclusions [prismatic/schema]]
                  [prismatic/schema "1.1.6"]
                  [org.clojure/core.match "0.3.0-alpha4"]]
   :source-paths ["dev" "src"]
   :profiles {:test {:plugins [[lein-shell "0.4.0" :exclusions [org.clojure/clojure]]
-                              [lein-cljsbuild "1.1.6" :exclusions [org.clojure/clojure]]]
+                              [lein-cljsbuild "1.1.7" :exclusions [org.clojure/clojure]]]
                     :cljsbuild {:builds [{:id "dev-figwheel"
                                           :source-paths ["src" "dev"]
                                           :figwheel {:on-jsload "factui.rum/refresh"}
